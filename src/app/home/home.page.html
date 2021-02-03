@@ -1,20 +1,29 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Hablame
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-button (click)="getPermission()" expand="block" fill="clear" shape="round">
+    Dame Permisos
+  </ion-button>
+  <ion-button (click)="startListening()" expand="block" fill="clear" shape="round">
+    Empieza a Grabar
+  </ion-button>
+  <ion-button (click)="stopListenig()" *ngIf="isIos()" expand="block" fill="clear" shape="round">
+    GetPermissions
+  </ion-button>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Esto es lo que entendi....</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+  <ion-list *ngFor="let match of matches">    
+      
+        <ion-label>{{ match }}</ion-label>
+      
+  </ion-list>
 </ion-content>
